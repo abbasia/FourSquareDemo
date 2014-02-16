@@ -7,12 +7,13 @@
 //
 
 #import "FSDAppDelegate.h"
-
+#import "FSDManager.h"
 @implementation FSDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     return YES;
 }
 							

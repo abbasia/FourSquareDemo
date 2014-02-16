@@ -46,12 +46,12 @@ static NSString* DATE_FORMAT = @"YYYYMMdd";
     return self;
 }
 
--(NSString*)getSearchUrlString:(NSString*)searchString{
+-(NSString*)getSearchUrlString:(NSString*)searchString forLocation:(NSString*)locationString{
     
     NSDate* date = [NSDate date];
     NSString* dateString = [self.dateFormatter stringFromDate:date];
     
-    NSString* returnString = [NSString stringWithFormat:@"%@?ll=%@&query=%@&client_id=%@&client_secret=%@&v=%@",BASEURL,@"60.1708,24.9375",searchString,CLIENT_ID,CLIENT_SECRET,dateString];
+    NSString* returnString = [NSString stringWithFormat:@"%@?ll=%@&query=%@&client_id=%@&client_secret=%@&v=%@",BASEURL,locationString,searchString,CLIENT_ID,CLIENT_SECRET,dateString];
     
     NSLog(@"search path = %@",returnString);
     
@@ -59,11 +59,11 @@ static NSString* DATE_FORMAT = @"YYYYMMdd";
     
 }
 
--(void)search:(NSString*)searchString success:(void (^)(id response))success
+-(void)search:(NSString*)searchString forLocation:(NSString*)locationString success:(void (^)(id response))success
       failure:(void (^)(NSError *error))failure{
     
     
-    [self.sessionManager GET:[self getSearchUrlString:searchString] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.sessionManager GET:[self getSearchUrlString:searchString forLocation:locationString] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         success(responseObject);
         

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface FSDManager : NSObject
 
 +(FSDManager*) instance;

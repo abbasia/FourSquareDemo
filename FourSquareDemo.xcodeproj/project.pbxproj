@@ -95,6 +95,7 @@
 		152B299318B1468B006CD969 /* FSDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSDManager.h; sourceTree = "<group>"; };
 		152B299418B1468B006CD969 /* FSDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDManager.m; sourceTree = "<group>"; };
 		152B299918B15859006CD969 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		1573AB5B18B16E2200E2046C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		15BA853618B15DA3001F80A5 /* FSDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSDMapViewController.h; sourceTree = "<group>"; };
 		15BA853718B15DA3001F80A5 /* FSDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDMapViewController.m; sourceTree = "<group>"; };
 		15BA853918B15F90001F80A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -155,6 +156,7 @@
 		152B293818B0FF7E006CD969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1573AB5B18B16E2200E2046C /* CoreLocation.framework */,
 				15BA853918B15F90001F80A5 /* MapKit.framework */,
 				152B293918B0FF7E006CD969 /* Foundation.framework */,
 				152B293B18B0FF7E006CD969 /* CoreGraphics.framework */,

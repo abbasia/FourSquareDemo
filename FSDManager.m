@@ -12,7 +12,6 @@
 @interface FSDManager ()
 
 @property(strong,nonatomic) NSMutableDictionary* dataDictionary;
-
 @end
 
 @implementation FSDManager
@@ -58,6 +57,8 @@
     self = [super init];
     if (self) {
         self.dataDictionary = [self readDataFromDisk];
+    
+        
     }
     return self;
 }
@@ -89,6 +90,19 @@
     
 }
 
+
+-(NSString*)getLocation{
+    
+    NSString* location;
+    
+    // location is fixed to helsinki, cllocationmanager can be used to get the current user location if required
+    // right now hardcoding location value
+    location = [NSString stringWithFormat:@"60.1708,24.9375"];
+    
+    return location;
+    
+}
+
 -(void)search:(NSString*)searchString success:(void (^)(id response))success
       failure:(void (^)(NSError *error))failure{
     
@@ -97,7 +111,8 @@
     success(response);
     
     
-    [[FSDWebService instance] search:searchString success:^(id response) {
+    
+    [[FSDWebService instance] search:searchString forLocation:[self getLocation] success:^(id response) {
         
         NSDictionary* dictionary = [response valueForKey:@"response"];
         
@@ -117,5 +132,6 @@
     
     
 }
+
 
 @end

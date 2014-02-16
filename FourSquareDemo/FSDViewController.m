@@ -89,6 +89,10 @@ static NSString *Segue_MainToMap = @"mainToMaps";
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     [searchBar resignFirstResponder];
+    
+    self.venues = nil;
+    
+    [self.collectionView reloadData];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar

@@ -13,7 +13,7 @@
 +(FSDWebService*) instance;
 
 
--(void)search:(NSString*)searchString success:(void (^)(id response))success
+-(void)search:(NSString*)searchString forLocation:(NSString*)locationString success:(void (^)(id response))success
       failure:(void (^)(NSError *error))failure;
 
 @end
