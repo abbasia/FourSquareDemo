@@ -12,5 +12,6 @@ TODO:
 
 1. Application not tested on actual iPad device to see collection view performance.
 2. Location currently fixed to helsinki for demo purposes, CLLocationManager can be added later on to get actual location information.
-3. Save images to disk so that they are available in offline mode as well.
+3. Preload venue images.
+4. Save images to disk so that they are available in offline mode as well.
 
