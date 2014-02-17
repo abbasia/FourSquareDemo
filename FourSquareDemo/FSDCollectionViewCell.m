@@ -11,13 +11,14 @@
 #import "UIImageView+AFNetworking.h"
 @implementation FSDCollectionViewCell
 
-#define kPlaceHolderImage  ([UIImage imageNamed:@"placeholder.png"])
+#define kPlaceHolderImage  ([UIImage imageNamed:@"placeholder.jpg"])
 
 -(void)setImageAnimated:(UIImage*)image{
     
     if (image==nil) {
         [self.imageView setImage:nil];
         [self.imageView setAlpha:0.5];
+        [self.labelContainerView setAlpha:0.5];
         
         [self.activityIndicator setHidden:NO];
         [self.activityIndicator startAnimating];
@@ -28,6 +29,7 @@
             
             [self.imageView setImage:image];
             [self.imageView setAlpha:1.0];
+            [self.labelContainerView setAlpha:1.0];
             
             
         } completion:^(BOOL finished) {
@@ -58,10 +60,14 @@
     
     [self.urlLabel setText:url];
     
+    //NSLog(@"%@",name);
+    //NSLog(@"%@",dictionary);
+    
+    
     [[FSDManager instance] getImageMetaDataForVenue:venueID success:^(id response) {
         
         if (response) {
-            
+            NSLog(@"%@ path = %@",name,response);
             NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:response]];
             
             [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -98,6 +104,9 @@
                 [self setImageAnimated:kPlaceHolderImage];
             }];
             
+        }
+        else{
+            [self setImageAnimated:kPlaceHolderImage];
         }
         
     } failure:^(NSError *error) {

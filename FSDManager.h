@@ -16,4 +16,6 @@
 
 -(void)getImageMetaDataForVenue:(NSString*)venueID success:(void (^)(id response))success
     failure:(void (^)(NSError *error))failure;
+
+-(NSArray*)dataFromLocalCache:(NSString*)searchString;
 @end

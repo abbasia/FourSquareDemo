@@ -136,11 +136,6 @@
 -(void)search:(NSString*)searchString success:(void (^)(id response))success
       failure:(void (^)(NSError *error))failure{
     
-    NSArray* response = [self dataFromLocalCache:searchString];
-    
-    success(response);
-    
-    
     
     [[FSDWebService instance] search:searchString forLocation:[self getLocation] success:^(id response) {
         

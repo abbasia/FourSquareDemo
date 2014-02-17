@@ -110,7 +110,7 @@ static NSString *Segue_MainToMap = @"mainToMaps";
     
     [[FSDManager instance] search:searchString success:^(id response) {
         
-        self.venues = response;
+        self.venues = [[FSDManager instance] dataFromLocalCache:searchString];
         
         [self.collectionView reloadData];
         
