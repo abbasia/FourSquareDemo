@@ -129,6 +129,7 @@
         
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        failure(error);
     }];
     
 }
@@ -151,7 +152,7 @@
         
         
     } failure:^(NSError *error) {
-        
+        failure(error);
     }];
     
     

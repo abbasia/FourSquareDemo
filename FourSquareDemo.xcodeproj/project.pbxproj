@@ -43,7 +43,6 @@
 		1573AB7518B18CC800E2046C /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1573AB6C18B18CC800E2046C /* UIRefreshControl+AFNetworking.m */; };
 		1573AB7618B18CC800E2046C /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1573AB6E18B18CC800E2046C /* UIWebView+AFNetworking.m */; };
 		1573AB7A18B19A1500E2046C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1573AB7918B19A1500E2046C /* placeholder.png */; };
-		1573AB7C18B1B0FA00E2046C /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1573AB7B18B1B0FA00E2046C /* placeholder.jpg */; };
 		15BA853818B15DA3001F80A5 /* FSDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15BA853718B15DA3001F80A5 /* FSDMapViewController.m */; };
 		15BA853A18B15F90001F80A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BA853918B15F90001F80A5 /* MapKit.framework */; };
 		15BA853D18B16333001F80A5 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 15BA853B18B16333001F80A5 /* PlaceAnnotation.m */; };
@@ -124,7 +123,6 @@
 		1573AB6D18B18CC800E2046C /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		1573AB6E18B18CC800E2046C /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		1573AB7918B19A1500E2046C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		1573AB7B18B1B0FA00E2046C /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
 		15BA853618B15DA3001F80A5 /* FSDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSDMapViewController.h; sourceTree = "<group>"; };
 		15BA853718B15DA3001F80A5 /* FSDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDMapViewController.m; sourceTree = "<group>"; };
 		15BA853918B15F90001F80A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -309,7 +307,6 @@
 		1573AB7718B18CD000E2046C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1573AB7B18B1B0FA00E2046C /* placeholder.jpg */,
 				1573AB7918B19A1500E2046C /* placeholder.png */,
 				152B299918B15859006CD969 /* background.jpg */,
 			);
@@ -423,7 +420,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				152B295218B0FF7E006CD969 /* Images.xcassets in Resources */,
-				1573AB7C18B1B0FA00E2046C /* placeholder.jpg in Resources */,
 				152B299A18B15859006CD969 /* background.jpg in Resources */,
 				152B294418B0FF7E006CD969 /* InfoPlist.strings in Resources */,
 				1573AB7A18B19A1500E2046C /* placeholder.png in Resources */,

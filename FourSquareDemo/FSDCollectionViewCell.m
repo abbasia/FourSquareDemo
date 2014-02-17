@@ -11,7 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 @implementation FSDCollectionViewCell
 
-#define kPlaceHolderImage  ([UIImage imageNamed:@"placeholder.jpg"])
+#define kPlaceHolderImage  ([UIImage imageNamed:@"placeholder.png"])
 
 -(void)setImageAnimated:(UIImage*)image{
     

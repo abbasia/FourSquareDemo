@@ -118,6 +118,11 @@ static NSString *Segue_MainToMap = @"mainToMaps";
         
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        
+        self.venues = [[FSDManager instance] dataFromLocalCache:searchString];
+        
+        [self.collectionView reloadData];
+        
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
 }
