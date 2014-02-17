@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UILabel *searchCountLabel;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @property(strong,nonatomic) NSArray* venues;
 @end
@@ -56,8 +58,8 @@ static NSString *Segue_MainToMap = @"mainToMaps";
 {
     FSDCollectionViewCell *cell = (FSDCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.layer.cornerRadius = 5;
-    cell.layer.masksToBounds = YES;
+    //cell.layer.cornerRadius = 5;
+    //cell.layer.masksToBounds = YES;
     
     
     [cell updateContentWithDictionary:[self.venues objectAtIndex:indexPath.row]];
@@ -83,15 +85,42 @@ static NSString *Segue_MainToMap = @"mainToMaps";
     
 }
 
+
+-(void)clearData{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.headerView.alpha = 0;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    self.venues = nil;
+    
+    [self.collectionView reloadData];
+    
+    
+}
+
+-(void)showData{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.headerView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    [self.collectionView reloadData];
+    
+}
+
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     [searchBar resignFirstResponder];
     
-    self.venues = nil;
+    [self clearData];
     
-    [self.collectionView reloadData];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
@@ -110,32 +139,55 @@ static NSString *Segue_MainToMap = @"mainToMaps";
     
     [[FSDManager instance] search:searchString success:^(id response) {
         
-        self.venues = [[FSDManager instance] dataFromLocalCache:searchString];
-        
-        [self.collectionView reloadData];
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self updateSearchResults:true searchString:searchString];
         
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
         
-        self.venues = [[FSDManager instance] dataFromLocalCache:searchString];
-        
-        [self.collectionView reloadData];
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self updateSearchResults:false searchString:searchString];
     }];
+    
+}
+
+- (void)updateSearchResults:(BOOL)success searchString:(NSString *)searchString {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
+    self.venues = [[FSDManager instance] dataFromLocalCache:searchString];
+    
+    [self updateSearchCount:success ? NO : YES];
+    
+    [self showData];
+    
+}
+
+- (void)updateSearchCount:(BOOL)localResults {
+    NSString *text = nil;
+    if(self.venues.count == 0) {
+        text = [NSString stringWithFormat:@"No results found"];
+    } else {
+        text = [NSString stringWithFormat:@"%i results found", self.venues.count];
+    }
+    
+    if(localResults) {
+        text = [NSString stringWithFormat:@"%@ on device", text];
+    } else {
+        text = [NSString stringWithFormat:@"%@ online", text];
+    }
+    
+    self.searchCountLabel.text = text;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
     
-    self.venues = nil;
-    [self.collectionView reloadData];
+    [self clearData];
     
     [self startSearch:searchBar.text];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
