@@ -166,7 +166,7 @@ static NSString *Segue_MainToMap = @"mainToMaps";
     if(self.venues.count == 0) {
         text = [NSString stringWithFormat:@"No results found"];
     } else {
-        text = [NSString stringWithFormat:@"%i results found", self.venues.count];
+        text = [NSString stringWithFormat:@"%lu results found", (unsigned long)self.venues.count];
     }
     
     if(localResults) {
