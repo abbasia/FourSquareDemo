@@ -56,10 +56,9 @@ static NSString *Segue_MainToMap = @"mainToMaps";
 {
     FSDCollectionViewCell *cell = (FSDCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.layer.cornerRadius = 20;
+    cell.layer.cornerRadius = 5;
     cell.layer.masksToBounds = YES;
     
-    [cell setBackgroundColor:[UIColor blackColor]];
     
     [cell updateContentWithDictionary:[self.venues objectAtIndex:indexPath.row]];
     

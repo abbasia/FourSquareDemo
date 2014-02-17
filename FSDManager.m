@@ -100,6 +100,36 @@
     location = [NSString stringWithFormat:@"60.1708,24.9375"];
     
     return location;
+    //https://irs3.4sqi.net/img/general/300x300/1HC22MBFQO1QXMQDDZSQCVDWE5YT13ZGMQUCERHY3TIPDSAG.jpg
+}
+
+-(void)getImageMetaDataForVenue:(NSString*)venueID success:(void (^)(id response))success
+                failure:(void (^)(NSError *error))failure{
+    
+    [[FSDWebService instance] getImageMetaDataForVenue:venueID success:^(id response) {
+        
+        
+        NSArray* items = [response valueForKeyPath:@"response.photos.items"];
+        
+        if (items.count>0) {
+            NSDictionary* dictionary = [items objectAtIndex:0];
+            NSString* prefix = [dictionary valueForKey:@"prefix"];
+            NSString* size = [NSString stringWithFormat:@"300x300"];
+            NSString* suffix = [dictionary valueForKey:@"suffix"];
+            
+            NSString* resolvedImageUrlString = [NSString stringWithFormat:@"%@%@%@",prefix,size,suffix];
+            
+            success(resolvedImageUrlString);
+            
+        }
+        else{
+            success(nil);
+        }
+        
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
     
 }
 

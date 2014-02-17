@@ -16,4 +16,9 @@
 -(void)search:(NSString*)searchString forLocation:(NSString*)locationString success:(void (^)(id response))success
       failure:(void (^)(NSError *error))failure;
 
+-(void)getImageMetaDataForVenue:(NSString*)venueID success:(void (^)(id response))success
+                failure:(void (^)(NSError *error))failure;
+
+-(void)getImage:(NSString*)urlString success:(void (^)(id response))success
+                        failure:(void (^)(NSError *error))failure;
 @end

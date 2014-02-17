@@ -13,4 +13,7 @@
 
 -(void)search:(NSString*)searchString success:(void (^)(id response))success
       failure:(void (^)(NSError *error))failure;
+
+-(void)getImageMetaDataForVenue:(NSString*)venueID success:(void (^)(id response))success
+    failure:(void (^)(NSError *error))failure;
 @end
